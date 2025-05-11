@@ -1,28 +1,13 @@
-#include <QApplication>
-#include <QWidget>
-#include <QPushButton>
-#include <QLabel>
-#include <QVBoxLayout>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QMainWindow>
+#include "./headerFiles/login.h"
+// #include "Ui_MainWindow"
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
-
-    QWidget window;
-    window.setWindowTitle("Responsive Example");
-
-    QLabel *label = new QLabel("Welcome to Railway Management System");
-    label->setWordWrap(true); // Let the text wrap automatically
-
-    QPushButton *button = new QPushButton("Click Me");
-
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->addWidget(label);
-    layout->addWidget(button);
-
-    window.setLayout(layout);
-    window.resize(400, 200); // initial size
+    QMainWindow window;
+    Ui::MainWindow ui;
+    ui.setupUi(&window);
     window.show();
-
     return app.exec();
 }
