@@ -31,8 +31,8 @@ public:
     QPushButton *pushButton_signup;
     QLabel *label_loginText;
     QPushButton *pushButton_login;
-    QLineEdit *lineEdit_username_2;
-    QLineEdit *lineEdit_username_3;
+    QLineEdit *lineEdit_password;
+    QLineEdit *lineEdit_confirm;
     QLabel *label_3;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -47,12 +47,6 @@ public:
         SignupWindow->setStyleSheet(QStringLiteral(""));
         centralwidget = new QWidget(SignupWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
-        centralwidget->setStyleSheet(QLatin1String("\n"
-"background-image: url(:/images/banner-bg.jpg);\n"
-"background-repeat: no-repeat;\n"
-"background-position: center;\n"
-"background-size: cover;\n"
-"    "));
         label = new QLabel(centralwidget);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(0, 60, 1061, 51));
@@ -120,10 +114,10 @@ public:
 "    color: #0d47a1;\n"
 "}\n"
 "     "));
-        lineEdit_username_2 = new QLineEdit(centralwidget);
-        lineEdit_username_2->setObjectName(QStringLiteral("lineEdit_username_2"));
-        lineEdit_username_2->setGeometry(QRect(400, 320, 261, 40));
-        lineEdit_username_2->setStyleSheet(QLatin1String("\n"
+        lineEdit_password = new QLineEdit(centralwidget);
+        lineEdit_password->setObjectName(QStringLiteral("lineEdit_password"));
+        lineEdit_password->setGeometry(QRect(400, 320, 261, 40));
+        lineEdit_password->setStyleSheet(QLatin1String("\n"
 "QLineEdit {\n"
 "    padding: 10px;\n"
 "    border: 2px solid #ddd;\n"
@@ -139,10 +133,10 @@ public:
 "    background-color: #ffffff;\n"
 "}\n"
 "     "));
-        lineEdit_username_3 = new QLineEdit(centralwidget);
-        lineEdit_username_3->setObjectName(QStringLiteral("lineEdit_username_3"));
-        lineEdit_username_3->setGeometry(QRect(400, 370, 261, 40));
-        lineEdit_username_3->setStyleSheet(QLatin1String("\n"
+        lineEdit_confirm = new QLineEdit(centralwidget);
+        lineEdit_confirm->setObjectName(QStringLiteral("lineEdit_confirm"));
+        lineEdit_confirm->setGeometry(QRect(400, 370, 261, 40));
+        lineEdit_confirm->setStyleSheet(QLatin1String("\n"
 "QLineEdit {\n"
 "    padding: 10px;\n"
 "    border: 2px solid #ddd;\n"
@@ -171,8 +165,8 @@ public:
         pushButton_signup->raise();
         label_loginText->raise();
         pushButton_login->raise();
-        lineEdit_username_2->raise();
-        lineEdit_username_3->raise();
+        lineEdit_password->raise();
+        lineEdit_confirm->raise();
         menubar = new QMenuBar(SignupWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
         menubar->setGeometry(QRect(0, 0, 1062, 21));
@@ -195,8 +189,8 @@ public:
         pushButton_signup->setText(QApplication::translate("SignupWindow", "Signup", nullptr));
         label_loginText->setText(QApplication::translate("SignupWindow", "Already have an account?", nullptr));
         pushButton_login->setText(QApplication::translate("SignupWindow", "Login", nullptr));
-        lineEdit_username_2->setPlaceholderText(QApplication::translate("SignupWindow", "Email", nullptr));
-        lineEdit_username_3->setPlaceholderText(QApplication::translate("SignupWindow", "Password", nullptr));
+        lineEdit_password->setPlaceholderText(QApplication::translate("SignupWindow", "Email", nullptr));
+        lineEdit_confirm->setPlaceholderText(QApplication::translate("SignupWindow", "Password", nullptr));
         label_3->setText(QString());
     } // retranslateUi
 

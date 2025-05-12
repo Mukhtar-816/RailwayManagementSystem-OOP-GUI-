@@ -18,7 +18,7 @@ void LoginWindow::onLoginClicked() {
     QString password = ui.lineEdit_password->text();
     bool isAdmin = ui.checkBox->isChecked();
 
-    bool success = logic.authenticate(username.toStdString(), password.toStdString(), isAdmin);
+    bool success = Authenticator.login(username.toStdString(), password.toStdString());
 
     if (success) {
         QMessageBox::information(this, "Login", "Login successful!");

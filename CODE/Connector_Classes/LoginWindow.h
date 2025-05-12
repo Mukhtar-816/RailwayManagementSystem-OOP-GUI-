@@ -3,7 +3,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include "../UIClasses/login.h"    // Make sure you include this after running uic on the .ui file
-#include "../Logic_classes/Login.Logic.h"   // Logic class for authentication
+#include "../Logic_classes/SystemManager.h"   // Logic class for authentication
 
 class LoginWindow : public QMainWindow {
     Q_OBJECT
@@ -18,7 +18,7 @@ private slots:
 
 private:
     Ui::MainWindow ui;
-    LoginLogic logic;
+    AuthenticationManager Authenticator;
 };
 
 #endif // LOGINWINDOW_H

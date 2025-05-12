@@ -63,6 +63,12 @@
         "text_encoding": "cpp",
         "thread": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "fstream": "cpp",
+        "future": "cpp",
+        "cinttypes": "cpp",
+        "qtablewidget": "cpp",
+        "qplaintextedit": "cpp",
+        "codecvt": "cpp"
     }
 }

@@ -87,7 +87,7 @@ QLabel {
      </string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab_home">
      <attribute name="title">
@@ -205,7 +205,7 @@ Plan smarter and travel easier with real-time train schedules, quick ticket book
       <property name="styleSheet">
        <string notr="true">
 font-size:20px;
-background-color:rgba(0,0,0,0.6);
+background-color:#fff;
 QTableWidget::row{
 background-color:rgba(0,0,0,0.6);
 }
@@ -1116,7 +1116,7 @@ background-color:rgba(0,0,0,0.6);
        <rect>
         <x>180</x>
         <y>160</y>
-        <width>251</width>
+        <width>171</width>
         <height>41</height>
        </rect>
       </property>
@@ -1135,9 +1135,9 @@ background-color:rgba(0,0,0,0.6);
      <widget class="QLabel" name="label_14">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>230</x>
         <y>220</y>
-        <width>251</width>
+        <width>121</width>
         <height>41</height>
        </rect>
       </property>
@@ -1153,42 +1153,12 @@ background-color:rgba(0,0,0,0.6);
        <string>Enter Seats :</string>
       </property>
      </widget>
-     <widget class="QPlainTextEdit" name="plainTextEdit_5">
-      <property name="geometry">
-       <rect>
-        <x>430</x>
-        <y>160</y>
-        <width>221</width>
-        <height>41</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPlainTextEdit" name="plainTextEdit">
-      <property name="geometry">
-       <rect>
-        <x>430</x>
-        <y>100</y>
-        <width>221</width>
-        <height>41</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPlainTextEdit" name="plainTextEdit_4">
-      <property name="geometry">
-       <rect>
-        <x>430</x>
-        <y>220</y>
-        <width>221</width>
-        <height>41</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>140</x>
         <y>100</y>
-        <width>251</width>
+        <width>201</width>
         <height>41</height>
        </rect>
       </property>
@@ -1207,9 +1177,9 @@ background-color:rgba(0,0,0,0.6);
      <widget class="QPushButton" name="pushButton">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>350</y>
-        <width>200</width>
+        <x>380</x>
+        <y>340</y>
+        <width>211</width>
         <height>51</height>
        </rect>
       </property>
@@ -1230,6 +1200,36 @@ color : #fff;
       </property>
       <property name="text">
        <string>Book</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>110</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_2">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>170</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_3">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>230</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
       </property>
      </widget>
     </widget>
@@ -1271,7 +1271,7 @@ color : #fff;
       <property name="styleSheet">
        <string notr="true">
 font-size:20px;
-background-color:rgba(0,0,0,0.6);
+background-color:#fff;
 QTableWidget::row{
 background-color:rgba(0,0,0,0.6);
 }
@@ -2112,16 +2112,6 @@ background-color:rgba(0,0,0,0.6);
        <string>Enter Train ID to Cancel :</string>
       </property>
      </widget>
-     <widget class="QPlainTextEdit" name="plainTextEdit_6">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>410</y>
-        <width>291</width>
-        <height>51</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_home_3">
       <property name="geometry">
        <rect>
@@ -2176,6 +2166,16 @@ color : #fff;
       </property>
       <property name="text">
        <string>Book</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_4">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>420</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
       </property>
      </widget>
     </widget>

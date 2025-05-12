@@ -4,6 +4,9 @@ setlocal enabledelayedexpansion
 REM === Run MOC for headers using Q_OBJECT ===
 echo Running MOC...
 moc Connector_Classes\LoginWindow.h -o MOC_Classes\moc_LoginWindow.cpp
+moc Connector_Classes\SignUpWindow.h -o MOC_Classes\moc_SignUpWindow.cpp
+moc Connector_Classes\UserDashboardWindow.h -o MOC_Classes\moc_UserDashboardWindow.cpp
+
 
 REM === Collect all .cpp files from subfolders ===
 set FILES=

@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPlainTextEdit>
@@ -46,20 +47,20 @@ public:
     QLabel *label_12;
     QLabel *label_13;
     QLabel *label_14;
-    QPlainTextEdit *plainTextEdit_5;
-    QPlainTextEdit *plainTextEdit;
-    QPlainTextEdit *plainTextEdit_4;
     QLabel *label_8;
     QPushButton *pushButton;
+    QLineEdit *lineEdit;
+    QLineEdit *lineEdit_2;
+    QLineEdit *lineEdit_3;
     QWidget *tab_cancel;
     QLabel *label_6;
     QTableWidget *tableWidget_2;
     QLabel *label_15;
     QLabel *label_16;
     QLabel *label_17;
-    QPlainTextEdit *plainTextEdit_6;
     QLabel *label_home_3;
     QPushButton *pushButton_2;
+    QLineEdit *lineEdit_4;
     QWidget *tab_about;
     QLabel *label_about;
     QLabel *label_7;
@@ -410,7 +411,7 @@ public:
         tableWidget->setLayoutDirection(Qt::LeftToRight);
         tableWidget->setStyleSheet(QLatin1String("\n"
 "font-size:20px;\n"
-"background-color:rgba(0,0,0,0.6);\n"
+"background-color:#fff;\n"
 "QTableWidget::row{\n"
 "background-color:rgba(0,0,0,0.6);\n"
 "}\n"
@@ -465,28 +466,19 @@ public:
         label_12->setFont(font1);
         label_13 = new QLabel(tab_book);
         label_13->setObjectName(QStringLiteral("label_13"));
-        label_13->setGeometry(QRect(180, 160, 251, 41));
+        label_13->setGeometry(QRect(180, 160, 171, 41));
         label_13->setFont(font1);
         label_14 = new QLabel(tab_book);
         label_14->setObjectName(QStringLiteral("label_14"));
-        label_14->setGeometry(QRect(180, 220, 251, 41));
+        label_14->setGeometry(QRect(230, 220, 121, 41));
         label_14->setFont(font1);
-        plainTextEdit_5 = new QPlainTextEdit(tab_book);
-        plainTextEdit_5->setObjectName(QStringLiteral("plainTextEdit_5"));
-        plainTextEdit_5->setGeometry(QRect(430, 160, 221, 41));
-        plainTextEdit = new QPlainTextEdit(tab_book);
-        plainTextEdit->setObjectName(QStringLiteral("plainTextEdit"));
-        plainTextEdit->setGeometry(QRect(430, 100, 221, 41));
-        plainTextEdit_4 = new QPlainTextEdit(tab_book);
-        plainTextEdit_4->setObjectName(QStringLiteral("plainTextEdit_4"));
-        plainTextEdit_4->setGeometry(QRect(430, 220, 221, 41));
         label_8 = new QLabel(tab_book);
         label_8->setObjectName(QStringLiteral("label_8"));
-        label_8->setGeometry(QRect(180, 100, 251, 41));
+        label_8->setGeometry(QRect(140, 100, 201, 41));
         label_8->setFont(font1);
         pushButton = new QPushButton(tab_book);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(440, 350, 200, 51));
+        pushButton->setGeometry(QRect(380, 340, 211, 51));
         QFont font3;
         font3.setFamily(QStringLiteral("Calibri"));
         font3.setPointSize(16);
@@ -498,6 +490,15 @@ public:
 "background-color: #1a73e8;\n"
 "color : #fff;\n"
 ""));
+        lineEdit = new QLineEdit(tab_book);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setGeometry(QRect(380, 110, 211, 31));
+        lineEdit_2 = new QLineEdit(tab_book);
+        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
+        lineEdit_2->setGeometry(QRect(380, 170, 211, 31));
+        lineEdit_3 = new QLineEdit(tab_book);
+        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
+        lineEdit_3->setGeometry(QRect(380, 230, 211, 31));
         tabWidget->addTab(tab_book, QString());
         tab_cancel = new QWidget();
         tab_cancel->setObjectName(QStringLiteral("tab_cancel"));
@@ -752,7 +753,7 @@ public:
         tableWidget_2->setLayoutDirection(Qt::LeftToRight);
         tableWidget_2->setStyleSheet(QLatin1String("\n"
 "font-size:20px;\n"
-"background-color:rgba(0,0,0,0.6);\n"
+"background-color:#fff;\n"
 "QTableWidget::row{\n"
 "background-color:rgba(0,0,0,0.6);\n"
 "}\n"
@@ -787,9 +788,6 @@ public:
         label_17->setObjectName(QStringLiteral("label_17"));
         label_17->setGeometry(QRect(90, 410, 251, 41));
         label_17->setFont(font1);
-        plainTextEdit_6 = new QPlainTextEdit(tab_cancel);
-        plainTextEdit_6->setObjectName(QStringLiteral("plainTextEdit_6"));
-        plainTextEdit_6->setGeometry(QRect(330, 410, 291, 51));
         label_home_3 = new QLabel(tab_cancel);
         label_home_3->setObjectName(QStringLiteral("label_home_3"));
         label_home_3->setGeometry(QRect(20, 20, 1062, 50));
@@ -810,6 +808,9 @@ public:
 "background-color: #1a73e8;\n"
 "color : #fff;\n"
 ""));
+        lineEdit_4 = new QLineEdit(tab_cancel);
+        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
+        lineEdit_4->setGeometry(QRect(320, 420, 211, 31));
         tabWidget->addTab(tab_cancel, QString());
         tab_about = new QWidget();
         tab_about->setObjectName(QStringLiteral("tab_about"));
@@ -858,7 +859,7 @@ public:
 
         retranslateUi(UserDashboard);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(UserDashboard);

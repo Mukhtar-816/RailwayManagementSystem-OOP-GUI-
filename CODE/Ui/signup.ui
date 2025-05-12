@@ -29,14 +29,6 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <property name="styleSheet">
-    <string notr="true">
-background-image: url(:/images/banner-bg.jpg);
-background-repeat: no-repeat;
-background-position: center;
-background-size: cover;
-    </string>
-   </property>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
@@ -182,7 +174,7 @@ QPushButton:hover {
      <string>Login</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_username_2">
+   <widget class="QLineEdit" name="lineEdit_password">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -213,7 +205,7 @@ QLineEdit:focus {
      <string>Email</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_username_3">
+   <widget class="QLineEdit" name="lineEdit_confirm">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -270,8 +262,8 @@ QLineEdit:focus {
    <zorder>pushButton_signup</zorder>
    <zorder>label_loginText</zorder>
    <zorder>pushButton_login</zorder>
-   <zorder>lineEdit_username_2</zorder>
-   <zorder>lineEdit_username_3</zorder>
+   <zorder>lineEdit_password</zorder>
+   <zorder>lineEdit_confirm</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
