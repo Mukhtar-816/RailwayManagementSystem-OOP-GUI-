@@ -16,6 +16,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPlainTextEdit>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableWidget>
@@ -49,6 +50,7 @@ public:
     QPlainTextEdit *plainTextEdit;
     QPlainTextEdit *plainTextEdit_4;
     QLabel *label_8;
+    QPushButton *pushButton;
     QWidget *tab_cancel;
     QLabel *label_6;
     QTableWidget *tableWidget_2;
@@ -57,6 +59,7 @@ public:
     QLabel *label_17;
     QPlainTextEdit *plainTextEdit_6;
     QLabel *label_home_3;
+    QPushButton *pushButton_2;
     QWidget *tab_about;
     QLabel *label_about;
     QLabel *label_7;
@@ -403,7 +406,7 @@ public:
         __qtablewidgetitem39->setForeground(brush34);
         tableWidget->setItem(6, 4, __qtablewidgetitem39);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(60, 50, 951, 420));
+        tableWidget->setGeometry(QRect(60, 130, 951, 301));
         tableWidget->setLayoutDirection(Qt::LeftToRight);
         tableWidget->setStyleSheet(QLatin1String("\n"
 "font-size:20px;\n"
@@ -481,6 +484,20 @@ public:
         label_8->setObjectName(QStringLiteral("label_8"));
         label_8->setGeometry(QRect(180, 100, 251, 41));
         label_8->setFont(font1);
+        pushButton = new QPushButton(tab_book);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(440, 350, 200, 51));
+        QFont font3;
+        font3.setFamily(QStringLiteral("Calibri"));
+        font3.setPointSize(16);
+        font3.setBold(true);
+        font3.setItalic(false);
+        font3.setWeight(75);
+        pushButton->setFont(font3);
+        pushButton->setStyleSheet(QLatin1String("border-radius:10px;\n"
+"background-color: #1a73e8;\n"
+"color : #fff;\n"
+""));
         tabWidget->addTab(tab_book, QString());
         tab_cancel = new QWidget();
         tab_cancel->setObjectName(QStringLiteral("tab_cancel"));
@@ -776,27 +793,35 @@ public:
         label_home_3 = new QLabel(tab_cancel);
         label_home_3->setObjectName(QStringLiteral("label_home_3"));
         label_home_3->setGeometry(QRect(20, 20, 1062, 50));
-        QFont font3;
-        font3.setFamily(QStringLiteral("Calibri"));
-        font3.setPointSize(22);
-        font3.setBold(true);
-        font3.setWeight(75);
-        label_home_3->setFont(font3);
+        QFont font4;
+        font4.setFamily(QStringLiteral("Calibri"));
+        font4.setPointSize(22);
+        font4.setBold(true);
+        font4.setWeight(75);
+        label_home_3->setFont(font4);
         label_home_3->setStyleSheet(QLatin1String("color : \"#fff\";\n"
 ""));
         label_home_3->setAlignment(Qt::AlignCenter);
+        pushButton_2 = new QPushButton(tab_cancel);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setGeometry(QRect(660, 410, 200, 51));
+        pushButton_2->setFont(font3);
+        pushButton_2->setStyleSheet(QLatin1String("border-radius:10px;\n"
+"background-color: #1a73e8;\n"
+"color : #fff;\n"
+""));
         tabWidget->addTab(tab_cancel, QString());
         tab_about = new QWidget();
         tab_about->setObjectName(QStringLiteral("tab_about"));
         label_about = new QLabel(tab_about);
         label_about->setObjectName(QStringLiteral("label_about"));
         label_about->setGeometry(QRect(150, 40, 751, 471));
-        QFont font4;
-        font4.setFamily(QStringLiteral("Calibri"));
-        font4.setPointSize(20);
-        font4.setBold(true);
-        font4.setWeight(75);
-        label_about->setFont(font4);
+        QFont font5;
+        font5.setFamily(QStringLiteral("Calibri"));
+        font5.setPointSize(20);
+        font5.setBold(true);
+        font5.setWeight(75);
+        label_about->setFont(font5);
         label_about->setAlignment(Qt::AlignCenter);
         label_about->setWordWrap(true);
         label_7 = new QLabel(tab_about);
@@ -810,7 +835,7 @@ public:
         label_home_2 = new QLabel(centralwidget);
         label_home_2->setObjectName(QStringLiteral("label_home_2"));
         label_home_2->setGeometry(QRect(0, 20, 1062, 50));
-        label_home_2->setFont(font3);
+        label_home_2->setFont(font4);
         label_home_2->setStyleSheet(QLatin1String("color : \"#fff\";\n"
 ""));
         label_home_2->setAlignment(Qt::AlignCenter);
@@ -833,7 +858,7 @@ public:
 
         retranslateUi(UserDashboard);
 
-        tabWidget->setCurrentIndex(4);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(UserDashboard);
@@ -943,6 +968,7 @@ public:
         label_13->setText(QApplication::translate("UserDashboard", "Enter Your Name :", nullptr));
         label_14->setText(QApplication::translate("UserDashboard", "Enter Seats :", nullptr));
         label_8->setText(QApplication::translate("UserDashboard", "Enter Train ID to Book :", nullptr));
+        pushButton->setText(QApplication::translate("UserDashboard", "Book", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_book), QApplication::translate("UserDashboard", "Book Ticket", nullptr));
         label_6->setText(QString());
         QTableWidgetItem *___qtablewidgetitem40 = tableWidget_2->horizontalHeaderItem(0);
@@ -1034,6 +1060,7 @@ public:
         label_16->setText(QApplication::translate("UserDashboard", "Enter Train ID to Book :", nullptr));
         label_17->setText(QApplication::translate("UserDashboard", "Enter Train ID to Cancel :", nullptr));
         label_home_3->setText(QApplication::translate("UserDashboard", "Your Booked Tickets", nullptr));
+        pushButton_2->setText(QApplication::translate("UserDashboard", "Book", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_cancel), QApplication::translate("UserDashboard", "Cancel Ticket", nullptr));
         label_about->setText(QApplication::translate("UserDashboard", "\n"
 "ABOUT US\n"
