@@ -4,7 +4,8 @@
 #include <QtWidgets/QMainWindow>
 #include "../UIClasses/userDashboard.h"
 #include "../Logic_classes/TicketManager.h"
-#include "../Logic_classes/Train.h"  // Shared Train struct
+#include "../Logic_classes/Train.h" 
+#include "../Logic_classes/SystemManager.h" // Shared Train struct
 
 class UserDashboardWindow : public QMainWindow {
     Q_OBJECT
@@ -21,11 +22,13 @@ private slots:
     void onCancelBookingClicked();
     void populateTrainTable();
     void populateBookedTicketsTable();
+    void onLogoutClicked();
 
 private:
     Ui::UserDashboard ui;
     QString m_username;
     TicketManager ticketManager;
+    SessionManager sessionManager;
 };
 
 #endif // USERDASHBOARDWINDOW_H

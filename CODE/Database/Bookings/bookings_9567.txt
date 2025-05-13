@@ -1,0 +1,7 @@
+UserID: 9567
+TicketID: 1963
+Name: yz
+TrainNo: 1001
+Seats: 7
+TotalCost: 49
+----------------------

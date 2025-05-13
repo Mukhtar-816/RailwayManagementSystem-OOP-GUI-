@@ -1,4 +1,6 @@
 #include "SignupWindow.h"
+#include "LoginWindow.h"
+#include "windows.h"
 #include <QtWidgets/QMessageBox>
 
 SignupWindow::SignupWindow(QWidget *parent)
@@ -7,32 +9,48 @@ SignupWindow::SignupWindow(QWidget *parent)
     ui.setupUi(this);
 
     connect(ui.pushButton_signup, &QPushButton::clicked, this, &SignupWindow::onSignupClicked);
+    connect(ui.pushButton_login, &QPushButton::clicked, this, &SignupWindow::onLoginButtonClicked);
 }
 
 SignupWindow::~SignupWindow() {}
 
-void SignupWindow::onSignupClicked() {
+void SignupWindow::onSignupClicked()
+{
     QString username = ui.lineEdit_username->text();
     QString password = ui.lineEdit_password->text();
     QString confirm = ui.lineEdit_confirm->text();
 
-    if (username.isEmpty() || password.isEmpty() || confirm.isEmpty()) {
+    if (username.isEmpty() || password.isEmpty() || confirm.isEmpty())
+    {
         QMessageBox::warning(this, "Error", "Please fill in all fields.");
         return;
     }
 
-    if (password != confirm) {
+    if (password != confirm)
+    {
         QMessageBox::warning(this, "Error", "Passwords do not match.");
         return;
     }
 
-    bool result = authenticator.signup(username.toStdString(), password.toStdString(), confirm.toStdString());
+    std::string res = authenticator.signup(username.toStdString(), password.toStdString(), confirm.toStdString());
 
-    if (result) {
+    if (res == "Success")
+    {
         QMessageBox::information(this, "Success", "Account created successfully!");
-        this->close(); // Or redirect to login
-        // emit openLogin();
-    } else {
-        QMessageBox::warning(this, "Error", "Error Creating Account.");
+        Sleep(800);
+        LoginWindow *loginWindow = new LoginWindow();
+        loginWindow->show();
+        this->close();
     }
+    else
+    {
+        QMessageBox::warning(this, "Error", QString::fromStdString(res));
+    }
+}
+
+void SignupWindow::onLoginButtonClicked()
+{
+    LoginWindow *loginWindow = new LoginWindow();
+    loginWindow->show();
+    this->close(); // close current signup window
 }

@@ -202,7 +202,7 @@ QLineEdit:focus {
      </string>
     </property>
     <property name="placeholderText">
-     <string>Email</string>
+     <string>Password</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_confirm">
@@ -233,7 +233,7 @@ QLineEdit:focus {
      </string>
     </property>
     <property name="placeholderText">
-     <string>Password</string>
+     <string>Confirm Password</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">

@@ -4,53 +4,100 @@
 #include <cstdio>
 #include <windows.h>
 
-// ---------------- AuthenticationManager ----------------
 
-bool AuthenticationManager::login(const std::string& username, const std::string& password) {
-    if (validateCredentials(username, password)) {
-        std::ofstream out("txtFiles/currentuser.txt");
-        if (out.is_open()) {
-            out << "username : " << username << "\n";
-            out.close();
-            return true;
-        } else {
-            return false;
-        }
-    } else {
-        return false ;
-    }
+AuthenticationManager::AuthenticationManager()
+{
+    auto seed = std::chrono::system_clock::now().time_since_epoch().count();
+    generator.seed(seed);
 }
 
-bool AuthenticationManager::signup(const std::string& username, const std::string& password, const std::string& confirmPassword) {
+
+// ---------------- AuthenticationManager ----------------
+
+std::string AuthenticationManager::login(const std::string& username, const std::string& password) {
+    std::ifstream inFile("Database/user_credentials.txt");
+    if (!inFile.is_open()) {
+        return "Error: Unable to open credentials file.";
+    }
+
+    std::string line, userID, fileUsername, filePassword;
+    while (std::getline(inFile, line)) {
+        if (line.find("userID : ") == 0) {
+            userID = line.substr(9);
+        } else if (line.find("username : ") == 0) {
+            fileUsername = line.substr(11);
+        } else if (line.find("password : ") == 0) {
+            filePassword = line.substr(11);
+
+            if (fileUsername == username && filePassword == password) {
+                std::ofstream out("Database/currentuser.txt");
+                if (out.is_open()) {
+                    out << "userID : " << userID << "\n";
+                    out << "username : " << fileUsername << "\n";
+                    out.close();
+                    return "Success";
+                } else {
+                    return "Error: Unable to open currentuser.txt";
+                }
+            }
+        }
+    }
+
+    return "Invalid Credentials";
+}
+
+
+std::string AuthenticationManager::signup(const std::string& username, const std::string& password, const std::string& confirmPassword) {
     if (userExists(username)) {
         return "Error: Username already exists.";
     }
 
-    std::ofstream outFile("txtFiles/user_credentials.txt", std::ios::app);
+    if (password != confirmPassword) {
+        return "Error: Passwords do not match.";
+    }
+
+    std::ofstream outFile("Database/user_credentials.txt", std::ios::app);
     if (!outFile.is_open()) {
         return "Error: Unable to open credentials file.";
     }
 
-    outFile << username << " " << password << "\n";
+    int userID = generateID();
+
+    outFile << "userID : " << userID << "\n";
+    outFile << "username : " << username << "\n";
+    outFile << "password : " << password << "\n";
+
     outFile.close();
-    return "Sign-up successful.";
+    return "Success";
 }
 
-bool AuthenticationManager::validateCredentials(const std::string& username, const std::string& password) {
-    std::ifstream inFile("txtFiles/user_credentials.txt");
-    std::string storedUsername, storedPassword;
 
-    while (inFile >> storedUsername >> storedPassword) {
-        if (storedUsername == username && storedPassword == password) {
-            return true;
+bool AuthenticationManager::validateCredentials(const std::string& username, const std::string& password) {
+    std::ifstream inFile("Database/user_credentials.txt");
+    if (!inFile.is_open()) {
+        return false;
+    }
+
+    std::string line;
+    std::string fileUsername, filePassword;
+
+    while (std::getline(inFile, line)) {
+        if (line.find("username : ") == 0) {
+            fileUsername = line.substr(11);
+        } else if (line.find("password : ") == 0) {
+            filePassword = line.substr(11);
+            if (fileUsername == username && filePassword == password) {
+                return true;
+            }
         }
     }
 
     return false;
 }
 
+
 bool AuthenticationManager::userExists(const std::string& username) {
-    std::ifstream inFile("txtFiles/user_credentials.txt");
+    std::ifstream inFile("Database/user_credentials.txt");
     std::string storedUsername, storedPassword;
 
     while (inFile >> storedUsername >> storedPassword) {
@@ -64,27 +111,19 @@ bool AuthenticationManager::userExists(const std::string& username) {
 
 // ---------------- IDGenerator ----------------
 
-IDGenerator::IDGenerator() {
-    auto seed = std::chrono::system_clock::now().time_since_epoch().count();
-    generator.seed(seed);
-}
-
-int IDGenerator::generate(int limitType) {
-    return limitType == 3 ? generateInRange(100, 999) : generateInRange(1000, 9999);
-}
-
-int IDGenerator::generateInRange(int min, int max) {
-    std::uniform_int_distribution<int> dist(min, max);
+int AuthenticationManager::generateID()
+{
+    std::uniform_int_distribution<int> dist(1000, 9999);
     return dist(generator);
 }
 
 // ---------------- SessionManager ----------------
 
-std::string SessionManager::logout() {
-    Sleep(1000);
-    if (remove("txtFiles/currentuser.txt") == 0) {
-        return "User successfully logged out.";
+bool SessionManager::logout() {
+    Sleep(800);
+    if (remove("Database/currentuser.txt") == 0) {
+        return true;
     } else {
-        return "Error: Could not remove session file.";
+        return false;
     }
 }

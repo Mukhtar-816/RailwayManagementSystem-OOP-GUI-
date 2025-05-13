@@ -34,6 +34,7 @@ public:
     QLabel *label_home;
     QLabel *label;
     QLabel *label_3;
+    QPushButton *pushButton_3;
     QWidget *tab_schedule;
     QLabel *label_4;
     QTableWidget *tableWidget;
@@ -157,10 +158,25 @@ public:
         label_3->setGeometry(QRect(10, -150, 1051, 851));
         label_3->setPixmap(QPixmap(QString::fromUtf8("images/bg.jpg")));
         label_3->setScaledContents(true);
+        pushButton_3 = new QPushButton(tab_home);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        pushButton_3->setGeometry(QRect(30, 470, 211, 51));
+        QFont font1;
+        font1.setFamily(QStringLiteral("Calibri"));
+        font1.setPointSize(16);
+        font1.setBold(true);
+        font1.setItalic(false);
+        font1.setWeight(75);
+        pushButton_3->setFont(font1);
+        pushButton_3->setStyleSheet(QLatin1String("border-radius:10px;\n"
+"background-color: red;\n"
+"color : #fff;\n"
+""));
         tabWidget->addTab(tab_home, QString());
         label_3->raise();
         label_home->raise();
         label->raise();
+        pushButton_3->raise();
         tab_schedule = new QWidget();
         tab_schedule->setObjectName(QStringLiteral("tab_schedule"));
         label_4 = new QLabel(tab_schedule);
@@ -171,70 +187,70 @@ public:
         tableWidget = new QTableWidget(tab_schedule);
         if (tableWidget->columnCount() < 5)
             tableWidget->setColumnCount(5);
-        QFont font1;
-        font1.setFamily(QStringLiteral("Calibri"));
-        font1.setPointSize(16);
-        font1.setBold(true);
-        font1.setWeight(75);
+        QFont font2;
+        font2.setFamily(QStringLiteral("Calibri"));
+        font2.setPointSize(16);
+        font2.setBold(true);
+        font2.setWeight(75);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         __qtablewidgetitem->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem->setFont(font1);
+        __qtablewidgetitem->setFont(font2);
         __qtablewidgetitem->setBackground(QColor(0, 0, 0, 1));
         tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
         __qtablewidgetitem1->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem1->setFont(font1);
+        __qtablewidgetitem1->setFont(font2);
         tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem1);
         QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
         __qtablewidgetitem2->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem2->setFont(font1);
+        __qtablewidgetitem2->setFont(font2);
         tableWidget->setHorizontalHeaderItem(2, __qtablewidgetitem2);
         QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
         __qtablewidgetitem3->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem3->setFont(font1);
+        __qtablewidgetitem3->setFont(font2);
         tableWidget->setHorizontalHeaderItem(3, __qtablewidgetitem3);
         QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
         __qtablewidgetitem4->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem4->setFont(font1);
+        __qtablewidgetitem4->setFont(font2);
         tableWidget->setHorizontalHeaderItem(4, __qtablewidgetitem4);
         if (tableWidget->rowCount() < 7)
             tableWidget->setRowCount(7);
         QBrush brush(QColor(255, 255, 255, 255));
         brush.setStyle(Qt::NoBrush);
-        QFont font2;
-        font2.setBold(true);
-        font2.setWeight(75);
+        QFont font3;
+        font3.setBold(true);
+        font3.setWeight(75);
         QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
         __qtablewidgetitem5->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem5->setFont(font2);
+        __qtablewidgetitem5->setFont(font3);
         __qtablewidgetitem5->setForeground(brush);
         tableWidget->setItem(0, 0, __qtablewidgetitem5);
         QBrush brush1(QColor(255, 255, 255, 255));
         brush1.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
         __qtablewidgetitem6->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem6->setFont(font2);
+        __qtablewidgetitem6->setFont(font3);
         __qtablewidgetitem6->setForeground(brush1);
         tableWidget->setItem(0, 1, __qtablewidgetitem6);
         QBrush brush2(QColor(255, 255, 255, 255));
         brush2.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
         __qtablewidgetitem7->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem7->setFont(font2);
+        __qtablewidgetitem7->setFont(font3);
         __qtablewidgetitem7->setForeground(brush2);
         tableWidget->setItem(0, 2, __qtablewidgetitem7);
         QBrush brush3(QColor(255, 255, 255, 255));
         brush3.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
         __qtablewidgetitem8->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem8->setFont(font2);
+        __qtablewidgetitem8->setFont(font3);
         __qtablewidgetitem8->setForeground(brush3);
         tableWidget->setItem(0, 3, __qtablewidgetitem8);
         QBrush brush4(QColor(255, 255, 255, 255));
         brush4.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
         __qtablewidgetitem9->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem9->setFont(font2);
+        __qtablewidgetitem9->setFont(font3);
         __qtablewidgetitem9->setForeground(brush4);
         tableWidget->setItem(0, 4, __qtablewidgetitem9);
         QBrush brush5(QColor(255, 255, 255, 255));
@@ -448,35 +464,35 @@ public:
         label_19 = new QLabel(tab_schedule);
         label_19->setObjectName(QStringLiteral("label_19"));
         label_19->setGeometry(QRect(250, 120, 190, 50));
-        label_19->setFont(font1);
+        label_19->setFont(font2);
         label_19->setStyleSheet(QLatin1String("color:\"#000000\";\n"
 "background-color:\"#fff\";"));
         label_19->setAlignment(Qt::AlignCenter);
         label_20 = new QLabel(tab_schedule);
         label_20->setObjectName(QStringLiteral("label_20"));
         label_20->setGeometry(QRect(440, 120, 190, 50));
-        label_20->setFont(font1);
+        label_20->setFont(font2);
         label_20->setStyleSheet(QLatin1String("color:\"#000000\";\n"
 "background-color:\"#fff\";"));
         label_20->setAlignment(Qt::AlignCenter);
         label_21 = new QLabel(tab_schedule);
         label_21->setObjectName(QStringLiteral("label_21"));
         label_21->setGeometry(QRect(630, 120, 190, 50));
-        label_21->setFont(font1);
+        label_21->setFont(font2);
         label_21->setStyleSheet(QLatin1String("color:\"#000000\";\n"
 "background-color:\"#fff\";"));
         label_21->setAlignment(Qt::AlignCenter);
         label_22 = new QLabel(tab_schedule);
         label_22->setObjectName(QStringLiteral("label_22"));
         label_22->setGeometry(QRect(820, 120, 190, 50));
-        label_22->setFont(font1);
+        label_22->setFont(font2);
         label_22->setStyleSheet(QLatin1String("color:\"#000000\";\n"
 "background-color:\"#fff\";"));
         label_22->setAlignment(Qt::AlignCenter);
         label_18 = new QLabel(tab_schedule);
         label_18->setObjectName(QStringLiteral("label_18"));
         label_18->setGeometry(QRect(60, 120, 190, 50));
-        label_18->setFont(font1);
+        label_18->setFont(font2);
         label_18->setStyleSheet(QLatin1String("color:\"#000000\";\n"
 "background-color:\"#fff\";"));
         label_18->setAlignment(Qt::AlignCenter);
@@ -491,15 +507,15 @@ public:
         label_9 = new QLabel(tab_book);
         label_9->setObjectName(QStringLiteral("label_9"));
         label_9->setGeometry(QRect(510, 560, 251, 41));
-        label_9->setFont(font1);
+        label_9->setFont(font2);
         label_10 = new QLabel(tab_book);
         label_10->setObjectName(QStringLiteral("label_10"));
         label_10->setGeometry(QRect(640, 560, 251, 41));
-        label_10->setFont(font1);
+        label_10->setFont(font2);
         label_11 = new QLabel(tab_book);
         label_11->setObjectName(QStringLiteral("label_11"));
         label_11->setGeometry(QRect(710, 560, 251, 41));
-        label_11->setFont(font1);
+        label_11->setFont(font2);
         plainTextEdit_2 = new QPlainTextEdit(tab_book);
         plainTextEdit_2->setObjectName(QStringLiteral("plainTextEdit_2"));
         plainTextEdit_2->setGeometry(QRect(670, 560, 221, 41));
@@ -509,29 +525,23 @@ public:
         label_12 = new QLabel(tab_book);
         label_12->setObjectName(QStringLiteral("label_12"));
         label_12->setGeometry(QRect(760, 560, 251, 41));
-        label_12->setFont(font1);
+        label_12->setFont(font2);
         label_13 = new QLabel(tab_book);
         label_13->setObjectName(QStringLiteral("label_13"));
         label_13->setGeometry(QRect(90, 190, 171, 41));
-        label_13->setFont(font1);
+        label_13->setFont(font2);
         label_14 = new QLabel(tab_book);
         label_14->setObjectName(QStringLiteral("label_14"));
         label_14->setGeometry(QRect(130, 260, 121, 41));
-        label_14->setFont(font1);
+        label_14->setFont(font2);
         label_8 = new QLabel(tab_book);
         label_8->setObjectName(QStringLiteral("label_8"));
         label_8->setGeometry(QRect(50, 120, 201, 41));
-        label_8->setFont(font1);
+        label_8->setFont(font2);
         pushButton = new QPushButton(tab_book);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(270, 420, 211, 51));
-        QFont font3;
-        font3.setFamily(QStringLiteral("Calibri"));
-        font3.setPointSize(16);
-        font3.setBold(true);
-        font3.setItalic(false);
-        font3.setWeight(75);
-        pushButton->setFont(font3);
+        pushButton->setFont(font1);
         pushButton->setStyleSheet(QLatin1String("border-radius:10px;\n"
 "background-color: #1a73e8;\n"
 "color : #fff;\n"
@@ -563,24 +573,24 @@ public:
             tableWidget_2->setColumnCount(5);
         QTableWidgetItem *__qtablewidgetitem40 = new QTableWidgetItem();
         __qtablewidgetitem40->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem40->setFont(font1);
+        __qtablewidgetitem40->setFont(font2);
         __qtablewidgetitem40->setBackground(QColor(0, 0, 0, 1));
         tableWidget_2->setHorizontalHeaderItem(0, __qtablewidgetitem40);
         QTableWidgetItem *__qtablewidgetitem41 = new QTableWidgetItem();
         __qtablewidgetitem41->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem41->setFont(font1);
+        __qtablewidgetitem41->setFont(font2);
         tableWidget_2->setHorizontalHeaderItem(1, __qtablewidgetitem41);
         QTableWidgetItem *__qtablewidgetitem42 = new QTableWidgetItem();
         __qtablewidgetitem42->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem42->setFont(font1);
+        __qtablewidgetitem42->setFont(font2);
         tableWidget_2->setHorizontalHeaderItem(2, __qtablewidgetitem42);
         QTableWidgetItem *__qtablewidgetitem43 = new QTableWidgetItem();
         __qtablewidgetitem43->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem43->setFont(font1);
+        __qtablewidgetitem43->setFont(font2);
         tableWidget_2->setHorizontalHeaderItem(3, __qtablewidgetitem43);
         QTableWidgetItem *__qtablewidgetitem44 = new QTableWidgetItem();
         __qtablewidgetitem44->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem44->setFont(font1);
+        __qtablewidgetitem44->setFont(font2);
         tableWidget_2->setHorizontalHeaderItem(4, __qtablewidgetitem44);
         if (tableWidget_2->rowCount() < 7)
             tableWidget_2->setRowCount(7);
@@ -588,35 +598,35 @@ public:
         brush35.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem45 = new QTableWidgetItem();
         __qtablewidgetitem45->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem45->setFont(font2);
+        __qtablewidgetitem45->setFont(font3);
         __qtablewidgetitem45->setForeground(brush35);
         tableWidget_2->setItem(0, 0, __qtablewidgetitem45);
         QBrush brush36(QColor(255, 255, 255, 255));
         brush36.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem46 = new QTableWidgetItem();
         __qtablewidgetitem46->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem46->setFont(font2);
+        __qtablewidgetitem46->setFont(font3);
         __qtablewidgetitem46->setForeground(brush36);
         tableWidget_2->setItem(0, 1, __qtablewidgetitem46);
         QBrush brush37(QColor(255, 255, 255, 255));
         brush37.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem47 = new QTableWidgetItem();
         __qtablewidgetitem47->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem47->setFont(font2);
+        __qtablewidgetitem47->setFont(font3);
         __qtablewidgetitem47->setForeground(brush37);
         tableWidget_2->setItem(0, 2, __qtablewidgetitem47);
         QBrush brush38(QColor(255, 255, 255, 255));
         brush38.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem48 = new QTableWidgetItem();
         __qtablewidgetitem48->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem48->setFont(font2);
+        __qtablewidgetitem48->setFont(font3);
         __qtablewidgetitem48->setForeground(brush38);
         tableWidget_2->setItem(0, 3, __qtablewidgetitem48);
         QBrush brush39(QColor(255, 255, 255, 255));
         brush39.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem49 = new QTableWidgetItem();
         __qtablewidgetitem49->setTextAlignment(Qt::AlignCenter);
-        __qtablewidgetitem49->setFont(font2);
+        __qtablewidgetitem49->setFont(font3);
         __qtablewidgetitem49->setForeground(brush39);
         tableWidget_2->setItem(0, 4, __qtablewidgetitem49);
         QBrush brush40(QColor(255, 255, 255, 255));
@@ -831,15 +841,15 @@ public:
         label_15 = new QLabel(tab_cancel);
         label_15->setObjectName(QStringLiteral("label_15"));
         label_15->setGeometry(QRect(560, 560, 251, 41));
-        label_15->setFont(font1);
+        label_15->setFont(font2);
         label_16 = new QLabel(tab_cancel);
         label_16->setObjectName(QStringLiteral("label_16"));
         label_16->setGeometry(QRect(710, 560, 251, 41));
-        label_16->setFont(font1);
+        label_16->setFont(font2);
         label_17 = new QLabel(tab_cancel);
         label_17->setObjectName(QStringLiteral("label_17"));
         label_17->setGeometry(QRect(80, 460, 221, 41));
-        label_17->setFont(font1);
+        label_17->setFont(font2);
         label_home_3 = new QLabel(tab_cancel);
         label_home_3->setObjectName(QStringLiteral("label_home_3"));
         label_home_3->setGeometry(QRect(20, 20, 1062, 50));
@@ -855,7 +865,7 @@ public:
         pushButton_2 = new QPushButton(tab_cancel);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setGeometry(QRect(690, 460, 200, 51));
-        pushButton_2->setFont(font3);
+        pushButton_2->setFont(font1);
         pushButton_2->setStyleSheet(QLatin1String("border-radius:10px;\n"
 "background-color: #1a73e8;\n"
 "color : #fff;\n"
@@ -866,35 +876,35 @@ public:
         label_23 = new QLabel(tab_cancel);
         label_23->setObjectName(QStringLiteral("label_23"));
         label_23->setGeometry(QRect(50, 80, 190, 50));
-        label_23->setFont(font1);
+        label_23->setFont(font2);
         label_23->setStyleSheet(QLatin1String("color:\"#000000\";\n"
 "background-color:\"#fff\";"));
         label_23->setAlignment(Qt::AlignCenter);
         label_25 = new QLabel(tab_cancel);
         label_25->setObjectName(QStringLiteral("label_25"));
         label_25->setGeometry(QRect(240, 80, 190, 50));
-        label_25->setFont(font1);
+        label_25->setFont(font2);
         label_25->setStyleSheet(QLatin1String("color:\"#000000\";\n"
 "background-color:\"#fff\";"));
         label_25->setAlignment(Qt::AlignCenter);
         label_24 = new QLabel(tab_cancel);
         label_24->setObjectName(QStringLiteral("label_24"));
         label_24->setGeometry(QRect(430, 80, 190, 50));
-        label_24->setFont(font1);
+        label_24->setFont(font2);
         label_24->setStyleSheet(QLatin1String("color:\"#000000\";\n"
 "background-color:\"#fff\";"));
         label_24->setAlignment(Qt::AlignCenter);
         label_27 = new QLabel(tab_cancel);
         label_27->setObjectName(QStringLiteral("label_27"));
         label_27->setGeometry(QRect(620, 80, 190, 50));
-        label_27->setFont(font1);
+        label_27->setFont(font2);
         label_27->setStyleSheet(QLatin1String("color:\"#000000\";\n"
 "background-color:\"#fff\";"));
         label_27->setAlignment(Qt::AlignCenter);
         label_26 = new QLabel(tab_cancel);
         label_26->setObjectName(QStringLiteral("label_26"));
         label_26->setGeometry(QRect(810, 80, 190, 50));
-        label_26->setFont(font1);
+        label_26->setFont(font2);
         label_26->setStyleSheet(QLatin1String("color:\"#000000\";\n"
 "background-color:\"#fff\";"));
         label_26->setAlignment(Qt::AlignCenter);
@@ -946,7 +956,7 @@ public:
 
         retranslateUi(UserDashboard);
 
-        tabWidget->setCurrentIndex(3);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(UserDashboard);
@@ -960,6 +970,7 @@ public:
 "Plan smarter and travel easier with real-time train schedules, quick ticket booking and cancellations, travel history access, and effortless route exploration. Fast, simple, and reliable\342\200\224your journey starts here.", nullptr));
         label->setText(QString());
         label_3->setText(QString());
+        pushButton_3->setText(QApplication::translate("UserDashboard", "Logout", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_home), QApplication::translate("UserDashboard", "Home", nullptr));
         label_4->setText(QString());
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);

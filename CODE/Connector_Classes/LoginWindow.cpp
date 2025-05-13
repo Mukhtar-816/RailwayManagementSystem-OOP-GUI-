@@ -1,4 +1,6 @@
 #include "LoginWindow.h"
+#include "UserDashboardWindow.h"
+#include "SignUpWindow.h"
 #include "windows.h"
 #include <QtWidgets/QMessageBox>
 
@@ -12,26 +14,33 @@ LoginWindow::LoginWindow(QWidget *parent)
     connect(ui.pushButton_2, &QPushButton::clicked, this, &LoginWindow::onCreateAccountClicked);
 }
 
-
-
 LoginWindow::~LoginWindow() {}
 
-void LoginWindow::onLoginClicked() {
+void LoginWindow::onLoginClicked()
+{
     QString username = ui.lineEdit_username->text();
     QString password = ui.lineEdit_password->text();
 
-    bool success = Authenticator.login(username.toStdString(), password.toStdString());
+    std::string res = Authenticator.login(username.toStdString(), password.toStdString());
 
-    if (success) {
+    if (res == "Success")
+    {
         QMessageBox::information(this, "Login", "Login successful!");
-        // You can emit a signal here or open another window
-        Sleep(1000);
-        // emit loginSuccess();
-    } else {
-        QMessageBox::warning(this, "Login", "Invalid credentials.");
+        Sleep(800);
+        UserDashboardWindow *dashboardWindow = new UserDashboardWindow();
+        dashboardWindow->show();
+        this->close(); // Close login window
+    }
+    else
+    {
+        QMessageBox::warning(this, "Login", QString::fromStdString(res));
     }
 }
 
-void LoginWindow::onCreateAccountClicked() {
-        // Open your sign-up form here if needed
+void LoginWindow::onCreateAccountClicked()
+{
+    Sleep(800);
+    SignupWindow *signupWindow = new SignupWindow();
+    signupWindow->show();
+    this->close();
 }

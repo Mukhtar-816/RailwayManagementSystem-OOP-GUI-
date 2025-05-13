@@ -1,0 +1,7 @@
+UserID: 1000
+TicketID: 1124
+Name: xyz
+TrainNo: 1001
+Seats: 7
+TotalCost: 49
+----------------------

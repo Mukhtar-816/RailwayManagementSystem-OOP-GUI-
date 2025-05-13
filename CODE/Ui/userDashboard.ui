@@ -87,7 +87,7 @@ QLabel {
      </string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_home">
      <attribute name="title">
@@ -163,9 +163,38 @@ Plan smarter and travel easier with real-time train schedules, quick ticket book
        <bool>true</bool>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>470</y>
+        <width>211</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <pointsize>16</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius:10px;
+background-color: red;
+color : #fff;
+</string>
+      </property>
+      <property name="text">
+       <string>Logout</string>
+      </property>
+     </widget>
      <zorder>label_3</zorder>
      <zorder>label_home</zorder>
      <zorder>label</zorder>
+     <zorder>pushButton_3</zorder>
     </widget>
     <widget class="QWidget" name="tab_schedule">
      <attribute name="title">

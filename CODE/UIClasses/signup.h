@@ -1,5 +1,5 @@
 /********************************************************************************
-** Form generated from reading UI file 'signup.ui'
+** Form generated from reading UI file 'SignUp.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.11.1
 **
@@ -189,8 +189,8 @@ public:
         pushButton_signup->setText(QApplication::translate("SignupWindow", "Signup", nullptr));
         label_loginText->setText(QApplication::translate("SignupWindow", "Already have an account?", nullptr));
         pushButton_login->setText(QApplication::translate("SignupWindow", "Login", nullptr));
-        lineEdit_password->setPlaceholderText(QApplication::translate("SignupWindow", "Email", nullptr));
-        lineEdit_confirm->setPlaceholderText(QApplication::translate("SignupWindow", "Password", nullptr));
+        lineEdit_password->setPlaceholderText(QApplication::translate("SignupWindow", "Password", nullptr));
+        lineEdit_confirm->setPlaceholderText(QApplication::translate("SignupWindow", "Confirm Password", nullptr));
         label_3->setText(QString());
     } // retranslateUi
 

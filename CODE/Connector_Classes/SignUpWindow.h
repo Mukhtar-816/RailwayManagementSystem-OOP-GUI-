@@ -14,6 +14,7 @@ public:
 
 private slots:
     void onSignupClicked();
+    void onLoginButtonClicked(); 
 
 private:
     Ui::SignupWindow ui;

@@ -20,7 +20,7 @@ int TicketManager::generateTicketID()
 
 std::string TicketManager::getCurrentUsername()
 {
-    std::ifstream userFile("txtFiles/currentuser.txt");
+    std::ifstream userFile("Database/currentuser.txt");
     std::string line, username;
     while (std::getline(userFile, line))
     {
@@ -35,7 +35,7 @@ std::string TicketManager::getCurrentUsername()
 
 int TicketManager::getCurrentUserID()
 {
-    std::ifstream userFile("txtFiles/currentuser.txt");
+    std::ifstream userFile("Database/currentuser.txt");
     std::string line;
     int id = -1;
     while (std::getline(userFile, line))
@@ -51,7 +51,7 @@ int TicketManager::getCurrentUserID()
 
 std::string TicketManager::bookTicket(int trainNo, const std::string &name, int seats)
 {
-    std::ifstream trainFile("txtFiles/trains_data.txt");
+    std::ifstream trainFile("Database/trains_data.txt");
     if (!trainFile.is_open())
     {
         return "Error: Could not open train data.";
@@ -95,13 +95,16 @@ std::string TicketManager::bookTicket(int trainNo, const std::string &name, int 
     }
 
     int ticketID = generateTicketID();
+    int id = getCurrentUserID();
+    std::string path = "Database/Bookings/bookings_" + std::to_string(id) + ".txt";
 
-    std::ofstream bookingFile("txtFiles/bookings.txt", std::ios::app);
+    std::ofstream bookingFile(path, std::ios::app);
     if (!bookingFile.is_open())
     {
         return "Error: Could not open bookings file.";
     }
 
+    bookingFile << "UserID: " << getCurrentUserID() << "\n";
     bookingFile << "TicketID: " << ticketID << "\n";
     bookingFile << "Name: " << name << "\n";
     bookingFile << "TrainNo: " << trainNo << "\n";
@@ -110,14 +113,17 @@ std::string TicketManager::bookTicket(int trainNo, const std::string &name, int 
     bookingFile << "----------------------\n";
     bookingFile.close();
 
-    return "Train Booked Succesfully." ;
+    return "Train Booked Succesfully.";
 };
 
 std::string TicketManager::cancelTicket(int ticketID)
 {
-    std::ifstream inFile("txtFiles/bookings.txt");
-    std::ofstream outFile("txtFiles/temp_bookings.txt");
-    std::ofstream cancelFile("txtFiles/cancelled_tickets.txt", std::ios::app);
+    int id = getCurrentUserID();
+    std::string path1 = "Database/Bookings/bookings_" + std::to_string(id) + ".txt";
+    std::string path2 = "Database/Cancellations/cancelled_tickets_" + std::to_string(id) + ".txt";
+    std::ifstream inFile(path1);
+    std::ofstream outFile("Database/temp_bookings.txt");
+    std::ofstream cancelFile(path2, std::ios::app);
 
     if (!inFile.is_open() || !outFile.is_open() || !cancelFile.is_open())
     {
@@ -126,34 +132,61 @@ std::string TicketManager::cancelTicket(int ticketID)
 
     std::string line;
     bool ticketFound = false;
-    bool copyBlock = true;
+    bool insideBlock = false;
+    bool copyToCancel = false;
+    std::vector<std::string> currentBlock;
+    int currentUserID = getCurrentUserID();
 
     while (std::getline(inFile, line))
     {
-        if (line.find("TicketID: ") != std::string::npos)
+        if (line.find("UserID: ") == 0)
         {
-            int currentID = std::stoi(line.substr(10));
-            if (currentID == ticketID)
-            {
-                ticketFound = true;
-                copyBlock = false;
-                cancelFile << line << "\n";
-                continue;
-            }
+            currentBlock.clear();
+            insideBlock = true;
+            copyToCancel = false;
         }
 
-        if (!copyBlock)
+        if (insideBlock)
         {
-            cancelFile << line << "\n";
+            currentBlock.push_back(line);
+
+            if (line.find("TicketID: ") == 0)
+            {
+                int fileTicketID = std::stoi(line.substr(10));
+
+                // Find user ID from current block
+                int fileUserID = -1;
+                for (const auto &blockLine : currentBlock)
+                {
+                    if (blockLine.find("UserID: ") == 0)
+                    {
+                        fileUserID = std::stoi(blockLine.substr(8));
+                        break;
+                    }
+                }
+
+                // Only cancel if userID matches as well
+                if (fileTicketID == ticketID && fileUserID == currentUserID)
+                {
+                    ticketFound = true;
+                    copyToCancel = true;
+                }
+            }
+
             if (line == "----------------------")
             {
-                copyBlock = true;
-                continue;
+                insideBlock = false;
+                if (copyToCancel)
+                {
+                    for (const std::string &l : currentBlock)
+                        cancelFile << l << "\n";
+                }
+                else
+                {
+                    for (const std::string &l : currentBlock)
+                        outFile << l << "\n";
+                }
             }
-        }
-        else
-        {
-            outFile << line << "\n";
         }
     }
 
@@ -163,20 +196,22 @@ std::string TicketManager::cancelTicket(int ticketID)
 
     if (ticketFound)
     {
-        fs::remove("txtFiles/bookings.txt");
-        fs::rename("txtFiles/temp_bookings.txt", "txtFiles/bookings.txt");
+        fs::remove(path1);
+        fs::rename("Database/temp_bookings.txt", path1);
         return "Ticket ID " + std::to_string(ticketID) + " cancelled successfully.";
     }
     else
     {
-        fs::remove("txtFiles/temp_bookings.txt");
-        return "Ticket not found.";
+        fs::remove("Database/temp_bookings.txt");
+        return "Ticket not found or does not belong to current user.";
     }
 }
 
 std::vector<Ticket> TicketManager::getUserBookedTickets()
 {
-    std::ifstream inFile("txtFiles/bookings.txt");
+    int id = getCurrentUserID();
+    std::string path = "Database/Bookings/bookings_" + std::to_string(id) + ".txt";
+    std::ifstream inFile(path);
     std::vector<Ticket> tickets;
     std::string line;
     Ticket ticket;
@@ -201,11 +236,10 @@ std::vector<Ticket> TicketManager::getUserBookedTickets()
     return tickets;
 }
 
-
 std::vector<Train> TicketManager::viewTrains()
 {
     std::vector<Train> trains;
-    std::ifstream file("txtFiles/trains_data.txt");
+    std::ifstream file("Database/trains_data.txt");
     std::string line;
 
     while (std::getline(file, line))

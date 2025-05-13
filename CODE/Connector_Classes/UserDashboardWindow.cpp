@@ -1,4 +1,6 @@
 #include "UserDashboardWindow.h"
+#include "LoginWindow.h"
+#include "windows.h"
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QTableWidgetItem>
 
@@ -9,6 +11,7 @@ UserDashboardWindow::UserDashboardWindow(QWidget *parent)
 
     connect(ui.pushButton, &QPushButton::clicked, this, &UserDashboardWindow::onBookTrainClicked);
     connect(ui.pushButton_2, &QPushButton::clicked, this, &UserDashboardWindow::onCancelBookingClicked);
+    connect(ui.pushButton_3, &QPushButton::clicked, this, &UserDashboardWindow::onLogoutClicked);
 
     populateTrainTable();
     populateBookedTicketsTable();
@@ -41,7 +44,6 @@ void UserDashboardWindow::onBookTrainClicked()
 
     std::string res = ticketManager.bookTicket(trainNo.toInt(), name.toStdString(), seats.toInt());
     QMessageBox::information(this, "Booking", QString::fromStdString(res));
-    
 
     populateBookedTicketsTable();
 }
@@ -104,4 +106,17 @@ void UserDashboardWindow::populateBookedTicketsTable()
 
     // ui.tableWidget_2->resizeColumnsToContents();
     // ui.tableWidget_2->resizeRowsToContents();
+}
+
+void UserDashboardWindow::onLogoutClicked()
+{
+    bool res = sessionManager.logout();
+    if (res)
+    {
+        QMessageBox::information(this, "Session", "Logged Out Successfully.");
+        Sleep(800);
+        LoginWindow *loginWindow = new LoginWindow();
+        loginWindow->show();
+        this->close();
+    }
 }
