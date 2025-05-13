@@ -31,6 +31,7 @@ void SignupWindow::onSignupClicked() {
     if (result) {
         QMessageBox::information(this, "Success", "Account created successfully!");
         this->close(); // Or redirect to login
+        // emit openLogin();
     } else {
         QMessageBox::warning(this, "Error", "Error Creating Account.");
     }

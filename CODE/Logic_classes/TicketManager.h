@@ -12,7 +12,7 @@ public:
 
     std::string bookTicket(int trainNo, const std::string &Name, int seats);
     std::string cancelTicket(int ticketID);
-    std::vector<std::string> getUserBookedTickets();
+    std::vector<Ticket> getUserBookedTickets();
     std::vector<Train> viewTrains();  
 
 private:

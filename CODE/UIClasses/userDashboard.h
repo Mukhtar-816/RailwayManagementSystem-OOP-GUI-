@@ -37,6 +37,11 @@ public:
     QWidget *tab_schedule;
     QLabel *label_4;
     QTableWidget *tableWidget;
+    QLabel *label_19;
+    QLabel *label_20;
+    QLabel *label_21;
+    QLabel *label_22;
+    QLabel *label_18;
     QWidget *tab_book;
     QLabel *label_5;
     QLabel *label_9;
@@ -52,6 +57,7 @@ public:
     QLineEdit *lineEdit;
     QLineEdit *lineEdit_2;
     QLineEdit *lineEdit_3;
+    QLabel *label_28;
     QWidget *tab_cancel;
     QLabel *label_6;
     QTableWidget *tableWidget_2;
@@ -61,6 +67,11 @@ public:
     QLabel *label_home_3;
     QPushButton *pushButton_2;
     QLineEdit *lineEdit_4;
+    QLabel *label_23;
+    QLabel *label_25;
+    QLabel *label_24;
+    QLabel *label_27;
+    QLabel *label_26;
     QWidget *tab_about;
     QLabel *label_about;
     QLabel *label_7;
@@ -407,7 +418,7 @@ public:
         __qtablewidgetitem39->setForeground(brush34);
         tableWidget->setItem(6, 4, __qtablewidgetitem39);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(60, 130, 951, 301));
+        tableWidget->setGeometry(QRect(59, 170, 951, 301));
         tableWidget->setLayoutDirection(Qt::LeftToRight);
         tableWidget->setStyleSheet(QLatin1String("\n"
 "font-size:20px;\n"
@@ -423,7 +434,7 @@ public:
         tableWidget->setTabKeyNavigation(false);
         tableWidget->setSelectionMode(QAbstractItemView::NoSelection);
         tableWidget->setShowGrid(true);
-        tableWidget->setGridStyle(Qt::DashLine);
+        tableWidget->setGridStyle(Qt::SolidLine);
         tableWidget->setSortingEnabled(false);
         tableWidget->setWordWrap(true);
         tableWidget->setCornerButtonEnabled(false);
@@ -433,7 +444,42 @@ public:
         tableWidget->horizontalHeader()->setDefaultSectionSize(190);
         tableWidget->horizontalHeader()->setMinimumSectionSize(100);
         tableWidget->verticalHeader()->setVisible(false);
-        tableWidget->verticalHeader()->setDefaultSectionSize(42);
+        tableWidget->verticalHeader()->setDefaultSectionSize(43);
+        label_19 = new QLabel(tab_schedule);
+        label_19->setObjectName(QStringLiteral("label_19"));
+        label_19->setGeometry(QRect(250, 120, 190, 50));
+        label_19->setFont(font1);
+        label_19->setStyleSheet(QLatin1String("color:\"#000000\";\n"
+"background-color:\"#fff\";"));
+        label_19->setAlignment(Qt::AlignCenter);
+        label_20 = new QLabel(tab_schedule);
+        label_20->setObjectName(QStringLiteral("label_20"));
+        label_20->setGeometry(QRect(440, 120, 190, 50));
+        label_20->setFont(font1);
+        label_20->setStyleSheet(QLatin1String("color:\"#000000\";\n"
+"background-color:\"#fff\";"));
+        label_20->setAlignment(Qt::AlignCenter);
+        label_21 = new QLabel(tab_schedule);
+        label_21->setObjectName(QStringLiteral("label_21"));
+        label_21->setGeometry(QRect(630, 120, 190, 50));
+        label_21->setFont(font1);
+        label_21->setStyleSheet(QLatin1String("color:\"#000000\";\n"
+"background-color:\"#fff\";"));
+        label_21->setAlignment(Qt::AlignCenter);
+        label_22 = new QLabel(tab_schedule);
+        label_22->setObjectName(QStringLiteral("label_22"));
+        label_22->setGeometry(QRect(820, 120, 190, 50));
+        label_22->setFont(font1);
+        label_22->setStyleSheet(QLatin1String("color:\"#000000\";\n"
+"background-color:\"#fff\";"));
+        label_22->setAlignment(Qt::AlignCenter);
+        label_18 = new QLabel(tab_schedule);
+        label_18->setObjectName(QStringLiteral("label_18"));
+        label_18->setGeometry(QRect(60, 120, 190, 50));
+        label_18->setFont(font1);
+        label_18->setStyleSheet(QLatin1String("color:\"#000000\";\n"
+"background-color:\"#fff\";"));
+        label_18->setAlignment(Qt::AlignCenter);
         tabWidget->addTab(tab_schedule, QString());
         tab_book = new QWidget();
         tab_book->setObjectName(QStringLiteral("tab_book"));
@@ -466,19 +512,19 @@ public:
         label_12->setFont(font1);
         label_13 = new QLabel(tab_book);
         label_13->setObjectName(QStringLiteral("label_13"));
-        label_13->setGeometry(QRect(180, 160, 171, 41));
+        label_13->setGeometry(QRect(90, 190, 171, 41));
         label_13->setFont(font1);
         label_14 = new QLabel(tab_book);
         label_14->setObjectName(QStringLiteral("label_14"));
-        label_14->setGeometry(QRect(230, 220, 121, 41));
+        label_14->setGeometry(QRect(130, 260, 121, 41));
         label_14->setFont(font1);
         label_8 = new QLabel(tab_book);
         label_8->setObjectName(QStringLiteral("label_8"));
-        label_8->setGeometry(QRect(140, 100, 201, 41));
+        label_8->setGeometry(QRect(50, 120, 201, 41));
         label_8->setFont(font1);
         pushButton = new QPushButton(tab_book);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(380, 340, 211, 51));
+        pushButton->setGeometry(QRect(270, 420, 211, 51));
         QFont font3;
         font3.setFamily(QStringLiteral("Calibri"));
         font3.setPointSize(16);
@@ -492,13 +538,18 @@ public:
 ""));
         lineEdit = new QLineEdit(tab_book);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(380, 110, 211, 31));
+        lineEdit->setGeometry(QRect(270, 130, 211, 40));
         lineEdit_2 = new QLineEdit(tab_book);
         lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setGeometry(QRect(380, 170, 211, 31));
+        lineEdit_2->setGeometry(QRect(270, 200, 211, 40));
         lineEdit_3 = new QLineEdit(tab_book);
         lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
-        lineEdit_3->setGeometry(QRect(380, 230, 211, 31));
+        lineEdit_3->setGeometry(QRect(270, 270, 211, 40));
+        label_28 = new QLabel(tab_book);
+        label_28->setObjectName(QStringLiteral("label_28"));
+        label_28->setGeometry(QRect(530, 60, 511, 441));
+        label_28->setPixmap(QPixmap(QString::fromUtf8("../images/ticket2.png")));
+        label_28->setScaledContents(true);
         tabWidget->addTab(tab_book, QString());
         tab_cancel = new QWidget();
         tab_cancel->setObjectName(QStringLiteral("tab_cancel"));
@@ -749,14 +800,15 @@ public:
         __qtablewidgetitem79->setForeground(brush69);
         tableWidget_2->setItem(6, 4, __qtablewidgetitem79);
         tableWidget_2->setObjectName(QStringLiteral("tableWidget_2"));
-        tableWidget_2->setGeometry(QRect(50, 90, 951, 301));
+        tableWidget_2->setGeometry(QRect(50, 130, 950, 301));
         tableWidget_2->setLayoutDirection(Qt::LeftToRight);
         tableWidget_2->setStyleSheet(QLatin1String("\n"
 "font-size:20px;\n"
 "background-color:#fff;\n"
 "QTableWidget::row{\n"
 "background-color:rgba(0,0,0,0.6);\n"
-"}\n"
+"};\n"
+"\n"
 "\n"
 ""));
         tableWidget_2->setFrameShape(QFrame::NoFrame);
@@ -765,7 +817,7 @@ public:
         tableWidget_2->setTabKeyNavigation(false);
         tableWidget_2->setSelectionMode(QAbstractItemView::NoSelection);
         tableWidget_2->setShowGrid(true);
-        tableWidget_2->setGridStyle(Qt::DashLine);
+        tableWidget_2->setGridStyle(Qt::SolidLine);
         tableWidget_2->setSortingEnabled(false);
         tableWidget_2->setWordWrap(true);
         tableWidget_2->setCornerButtonEnabled(false);
@@ -775,7 +827,7 @@ public:
         tableWidget_2->horizontalHeader()->setDefaultSectionSize(190);
         tableWidget_2->horizontalHeader()->setMinimumSectionSize(100);
         tableWidget_2->verticalHeader()->setVisible(false);
-        tableWidget_2->verticalHeader()->setDefaultSectionSize(42);
+        tableWidget_2->verticalHeader()->setDefaultSectionSize(43);
         label_15 = new QLabel(tab_cancel);
         label_15->setObjectName(QStringLiteral("label_15"));
         label_15->setGeometry(QRect(560, 560, 251, 41));
@@ -786,7 +838,7 @@ public:
         label_16->setFont(font1);
         label_17 = new QLabel(tab_cancel);
         label_17->setObjectName(QStringLiteral("label_17"));
-        label_17->setGeometry(QRect(90, 410, 251, 41));
+        label_17->setGeometry(QRect(80, 460, 221, 41));
         label_17->setFont(font1);
         label_home_3 = new QLabel(tab_cancel);
         label_home_3->setObjectName(QStringLiteral("label_home_3"));
@@ -802,7 +854,7 @@ public:
         label_home_3->setAlignment(Qt::AlignCenter);
         pushButton_2 = new QPushButton(tab_cancel);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(660, 410, 200, 51));
+        pushButton_2->setGeometry(QRect(690, 460, 200, 51));
         pushButton_2->setFont(font3);
         pushButton_2->setStyleSheet(QLatin1String("border-radius:10px;\n"
 "background-color: #1a73e8;\n"
@@ -810,7 +862,42 @@ public:
 ""));
         lineEdit_4 = new QLineEdit(tab_cancel);
         lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
-        lineEdit_4->setGeometry(QRect(320, 420, 211, 31));
+        lineEdit_4->setGeometry(QRect(320, 470, 211, 31));
+        label_23 = new QLabel(tab_cancel);
+        label_23->setObjectName(QStringLiteral("label_23"));
+        label_23->setGeometry(QRect(50, 80, 190, 50));
+        label_23->setFont(font1);
+        label_23->setStyleSheet(QLatin1String("color:\"#000000\";\n"
+"background-color:\"#fff\";"));
+        label_23->setAlignment(Qt::AlignCenter);
+        label_25 = new QLabel(tab_cancel);
+        label_25->setObjectName(QStringLiteral("label_25"));
+        label_25->setGeometry(QRect(240, 80, 190, 50));
+        label_25->setFont(font1);
+        label_25->setStyleSheet(QLatin1String("color:\"#000000\";\n"
+"background-color:\"#fff\";"));
+        label_25->setAlignment(Qt::AlignCenter);
+        label_24 = new QLabel(tab_cancel);
+        label_24->setObjectName(QStringLiteral("label_24"));
+        label_24->setGeometry(QRect(430, 80, 190, 50));
+        label_24->setFont(font1);
+        label_24->setStyleSheet(QLatin1String("color:\"#000000\";\n"
+"background-color:\"#fff\";"));
+        label_24->setAlignment(Qt::AlignCenter);
+        label_27 = new QLabel(tab_cancel);
+        label_27->setObjectName(QStringLiteral("label_27"));
+        label_27->setGeometry(QRect(620, 80, 190, 50));
+        label_27->setFont(font1);
+        label_27->setStyleSheet(QLatin1String("color:\"#000000\";\n"
+"background-color:\"#fff\";"));
+        label_27->setAlignment(Qt::AlignCenter);
+        label_26 = new QLabel(tab_cancel);
+        label_26->setObjectName(QStringLiteral("label_26"));
+        label_26->setGeometry(QRect(810, 80, 190, 50));
+        label_26->setFont(font1);
+        label_26->setStyleSheet(QLatin1String("color:\"#000000\";\n"
+"background-color:\"#fff\";"));
+        label_26->setAlignment(Qt::AlignCenter);
         tabWidget->addTab(tab_cancel, QString());
         tab_about = new QWidget();
         tab_about->setObjectName(QStringLiteral("tab_about"));
@@ -960,6 +1047,11 @@ public:
         ___qtablewidgetitem39->setText(QApplication::translate("UserDashboard", "Hyd", nullptr));
         tableWidget->setSortingEnabled(__sortingEnabled);
 
+        label_19->setText(QApplication::translate("UserDashboard", "Name", nullptr));
+        label_20->setText(QApplication::translate("UserDashboard", "Departure", nullptr));
+        label_21->setText(QApplication::translate("UserDashboard", "Time", nullptr));
+        label_22->setText(QApplication::translate("UserDashboard", "Destination", nullptr));
+        label_18->setText(QApplication::translate("UserDashboard", "ID", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_schedule), QApplication::translate("UserDashboard", "Train Schedule", nullptr));
         label_5->setText(QString());
         label_9->setText(QApplication::translate("UserDashboard", "Enter Train ID to Book :", nullptr));
@@ -970,6 +1062,7 @@ public:
         label_14->setText(QApplication::translate("UserDashboard", "Enter Seats :", nullptr));
         label_8->setText(QApplication::translate("UserDashboard", "Enter Train ID to Book :", nullptr));
         pushButton->setText(QApplication::translate("UserDashboard", "Book", nullptr));
+        label_28->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_book), QApplication::translate("UserDashboard", "Book Ticket", nullptr));
         label_6->setText(QString());
         QTableWidgetItem *___qtablewidgetitem40 = tableWidget_2->horizontalHeaderItem(0);
@@ -1061,7 +1154,12 @@ public:
         label_16->setText(QApplication::translate("UserDashboard", "Enter Train ID to Book :", nullptr));
         label_17->setText(QApplication::translate("UserDashboard", "Enter Train ID to Cancel :", nullptr));
         label_home_3->setText(QApplication::translate("UserDashboard", "Your Booked Tickets", nullptr));
-        pushButton_2->setText(QApplication::translate("UserDashboard", "Book", nullptr));
+        pushButton_2->setText(QApplication::translate("UserDashboard", "Cancel", nullptr));
+        label_23->setText(QApplication::translate("UserDashboard", "Ticket ID", nullptr));
+        label_25->setText(QApplication::translate("UserDashboard", "Name", nullptr));
+        label_24->setText(QApplication::translate("UserDashboard", "Train No", nullptr));
+        label_27->setText(QApplication::translate("UserDashboard", "Seat", nullptr));
+        label_26->setText(QApplication::translate("UserDashboard", "Payment", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_cancel), QApplication::translate("UserDashboard", "Cancel Ticket", nullptr));
         label_about->setText(QApplication::translate("UserDashboard", "\n"
 "ABOUT US\n"

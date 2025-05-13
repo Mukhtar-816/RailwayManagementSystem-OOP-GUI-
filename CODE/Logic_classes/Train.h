@@ -11,4 +11,14 @@ struct Train {
     std::string time;
 };
 
+struct Ticket
+{
+    int ticketID;
+    std::string name;
+    int trainNo;
+    int seats;
+    int totalCost;
+};
+
+
 #endif // TRAIN_H

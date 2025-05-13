@@ -40,14 +40,8 @@ void UserDashboardWindow::onBookTrainClicked()
     }
 
     std::string res = ticketManager.bookTicket(trainNo.toInt(), name.toStdString(), seats.toInt());
-    if (res.compare("true") == 0)
-    {
-        QMessageBox::information(this, "Booking", "Success");
-    }
-    else
-    {
-        QMessageBox::information(this, "Error", QString::fromStdString(res));
-    }
+    QMessageBox::information(this, "Booking", QString::fromStdString(res));
+    
 
     populateBookedTicketsTable();
 }
@@ -90,14 +84,24 @@ void UserDashboardWindow::populateTrainTable()
 
 void UserDashboardWindow::populateBookedTicketsTable()
 {
-    std::vector<std::string> tickets = ticketManager.getUserBookedTickets();
+    std::vector<Ticket> tickets = ticketManager.getUserBookedTickets();
+
     ui.tableWidget_2->setRowCount(tickets.size());
-    ui.tableWidget_2->setColumnCount(1);
-    QStringList headers = {"Ticket Info"};
+    ui.tableWidget_2->setColumnCount(5);
+
+    QStringList headers = {"Ticket ID", "Name", "Train No", "Seats", "Total Cost"};
     ui.tableWidget_2->setHorizontalHeaderLabels(headers);
 
-    for (int i = 0; i < tickets.size(); ++i)
+    for (int row = 0; row < tickets.size(); ++row)
     {
-        ui.tableWidget_2->setItem(i, 0, new QTableWidgetItem(QString::fromStdString(tickets[i])));
+        const Ticket &t = tickets[row];
+        ui.tableWidget_2->setItem(row, 0, new QTableWidgetItem(QString::number(t.ticketID)));
+        ui.tableWidget_2->setItem(row, 1, new QTableWidgetItem(QString::fromStdString(t.name)));
+        ui.tableWidget_2->setItem(row, 2, new QTableWidgetItem(QString::number(t.trainNo)));
+        ui.tableWidget_2->setItem(row, 3, new QTableWidgetItem(QString::number(t.seats)));
+        ui.tableWidget_2->setItem(row, 4, new QTableWidgetItem(QString::number(t.totalCost)));
     }
+
+    // ui.tableWidget_2->resizeColumnsToContents();
+    // ui.tableWidget_2->resizeRowsToContents();
 }

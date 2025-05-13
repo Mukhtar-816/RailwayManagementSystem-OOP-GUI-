@@ -140,22 +140,6 @@ QLineEdit:focus {
      <string>Password</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>380</y>
-      <width>250</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color:#fff; font-size:14px; font-family:&quot;Segoe UI&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Login as Admin</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
@@ -256,7 +240,6 @@ QPushButton:hover {
    <zorder>label_2</zorder>
    <zorder>lineEdit_username</zorder>
    <zorder>lineEdit_password</zorder>
-   <zorder>checkBox</zorder>
    <zorder>pushButton</zorder>
    <zorder>label_3</zorder>
    <zorder>pushButton_2</zorder>

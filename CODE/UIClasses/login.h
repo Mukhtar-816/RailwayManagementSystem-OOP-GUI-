@@ -11,7 +11,6 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -30,7 +29,6 @@ public:
     QLabel *label_2;
     QLineEdit *lineEdit_username;
     QLineEdit *lineEdit_password;
-    QCheckBox *checkBox;
     QPushButton *pushButton;
     QLabel *label_3;
     QPushButton *pushButton_2;
@@ -48,6 +46,12 @@ public:
         MainWindow->setStyleSheet(QStringLiteral(""));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
+        centralwidget->setStyleSheet(QLatin1String("\n"
+"background-image: url(:/images/banner-bg.jpg);\n"
+"background-repeat: no-repeat;\n"
+"background-position: center;\n"
+"background-size: cover;\n"
+"    "));
         label = new QLabel(centralwidget);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(0, 60, 1061, 51));
@@ -97,10 +101,6 @@ public:
 "}\n"
 "     "));
         lineEdit_password->setEchoMode(QLineEdit::Password);
-        checkBox = new QCheckBox(centralwidget);
-        checkBox->setObjectName(QStringLiteral("checkBox"));
-        checkBox->setGeometry(QRect(410, 380, 250, 31));
-        checkBox->setStyleSheet(QStringLiteral("color:#fff; font-size:14px; font-family:\"Segoe UI\";"));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(465, 430, 130, 40));
@@ -150,7 +150,6 @@ public:
         label_2->raise();
         lineEdit_username->raise();
         lineEdit_password->raise();
-        checkBox->raise();
         pushButton->raise();
         label_3->raise();
         pushButton_2->raise();
@@ -174,7 +173,6 @@ public:
         label_2->setText(QApplication::translate("MainWindow", "LOGIN", nullptr));
         lineEdit_username->setPlaceholderText(QApplication::translate("MainWindow", "Username", nullptr));
         lineEdit_password->setPlaceholderText(QApplication::translate("MainWindow", "Password", nullptr));
-        checkBox->setText(QApplication::translate("MainWindow", "Login as Admin", nullptr));
         pushButton->setText(QApplication::translate("MainWindow", "Login", nullptr));
         label_3->setText(QApplication::translate("MainWindow", "Don't have an account?", nullptr));
         pushButton_2->setText(QApplication::translate("MainWindow", "Create one", nullptr));

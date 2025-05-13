@@ -58,15 +58,29 @@ std::string TicketManager::bookTicket(int trainNo, const std::string &name, int 
     }
 
     bool trainExists = false;
+    int cost;
     std::string trainLine;
     while (std::getline(trainFile, trainLine))
     {
         if (trainLine.find("TrainNo: " + std::to_string(trainNo)) != std::string::npos)
         {
             trainExists = true;
-            break;
+
+            // Continue reading the block for this train
+            while (std::getline(trainFile, trainLine))
+            {
+                if (trainLine.find("Cost: ") != std::string::npos)
+                {
+                    std::string costStr = trainLine.substr(trainLine.find("Cost: ") + 6);
+                    cost = std::stoi(costStr);
+                    break;
+                }
+            }
+
+            break; // Exit after finding the train block
         }
     }
+
     trainFile.close();
 
     if (!trainExists)
@@ -89,13 +103,14 @@ std::string TicketManager::bookTicket(int trainNo, const std::string &name, int 
     }
 
     bookingFile << "TicketID: " << ticketID << "\n";
+    bookingFile << "Name: " << name << "\n";
     bookingFile << "TrainNo: " << trainNo << "\n";
     bookingFile << "Seats: " << seats << "\n";
-    bookingFile << "BookedBy: " << name << "\n";
+    bookingFile << "TotalCost: " << seats * cost << "\n";
     bookingFile << "----------------------\n";
     bookingFile.close();
 
-    return "true";
+    return "Train Booked Succesfully." ;
 };
 
 std::string TicketManager::cancelTicket(int ticketID)
@@ -159,44 +174,33 @@ std::string TicketManager::cancelTicket(int ticketID)
     }
 }
 
-std::vector<std::string> TicketManager::getUserBookedTickets()
+std::vector<Ticket> TicketManager::getUserBookedTickets()
 {
     std::ifstream inFile("txtFiles/bookings.txt");
-    std::vector<std::string> tickets;
-    std::string line, ticketBlock;
-    std::string currentUser = getCurrentUsername();
-    bool isUserTicket = false;
+    std::vector<Ticket> tickets;
+    std::string line;
+    Ticket ticket;
 
     while (std::getline(inFile, line))
     {
-        if (line.find("BookedBy: " + currentUser) != std::string::npos)
-        {
-            isUserTicket = true;
-            ticketBlock += line + "\n";
-        }
+        if (line.find("TicketID: ") == 0)
+            ticket.ticketID = std::stoi(line.substr(10));
+        else if (line.find("Name: ") == 0)
+            ticket.name = line.substr(6);
+        else if (line.find("TrainNo: ") == 0)
+            ticket.trainNo = std::stoi(line.substr(9));
+        else if (line.find("Seats: ") == 0)
+            ticket.seats = std::stoi(line.substr(7));
+        else if (line.find("TotalCost: ") == 0)
+            ticket.totalCost = std::stoi(line.substr(11));
         else if (line == "----------------------")
-        {
-            if (isUserTicket)
-            {
-                ticketBlock += line + "\n";
-                tickets.push_back(ticketBlock);
-                ticketBlock.clear();
-                isUserTicket = false;
-            }
-            else
-            {
-                ticketBlock.clear();
-            }
-        }
-        else if (isUserTicket)
-        {
-            ticketBlock += line + "\n";
-        }
+            tickets.push_back(ticket);
     }
 
     inFile.close();
     return tickets;
 }
+
 
 std::vector<Train> TicketManager::viewTrains()
 {

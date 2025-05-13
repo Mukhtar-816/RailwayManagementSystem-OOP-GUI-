@@ -69,6 +69,8 @@
         "cinttypes": "cpp",
         "qtablewidget": "cpp",
         "qplaintextedit": "cpp",
-        "codecvt": "cpp"
+        "codecvt": "cpp",
+        "qwidget": "cpp",
+        "qmenubar": "cpp"
     }
 }

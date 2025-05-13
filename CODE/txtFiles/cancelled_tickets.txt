@@ -1,0 +1,6 @@
+TicketID: 7418
+Name: Mukhtar
+TrainNo: 1001
+Seats: 3
+TotalCost: 9
+----------------------

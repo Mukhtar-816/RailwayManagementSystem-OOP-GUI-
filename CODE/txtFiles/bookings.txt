@@ -1,8 +1,12 @@
-TicketID: 9793
-TrainNo: 1001
-BookedBy: Mukhtar
+TicketID: 2232
+Name: Mustafa
+TrainNo: 1002
+Seats: 6
+TotalCost: 36
 ----------------------
-TicketID: 8170
-TrainNo: 1003
-BookedBy: Mukhtar
+TicketID: 3342
+Name: Mukhtar
+TrainNo: 1001
+Seats: 8
+TotalCost: 64
 ----------------------
