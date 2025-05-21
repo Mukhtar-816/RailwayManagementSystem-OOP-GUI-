@@ -3,32 +3,32 @@ TrainName: GreenLine Express
 From: Lahore
 To: Karachi
 Time: 08:00
-Cost : 100
+Cost: 100
 
 TrainNo: 1002
 TrainName: Karakoram Express
 From: Rawalpindi
 To: Karachi
 Time: 09:30
-Cost : 100
+Cost: 100
 
 TrainNo: 1003
 TrainName: Tezgam Express
 From: Peshawar
 To: Multan
 Time: 11:00
-Cost : 100
+Cost: 100
 
 TrainNo: 1004
 TrainName: Awam Express
 From: Karachi
 To: Faisalabad
 Time: 06:45
-Cost : 100
+Cost: 100
 
 TrainNo: 1005
 TrainName: Shalimar Express
 From: Lahore
 To: Sialkot
 Time: 15:20
-Cost : 100
+Cost: 100
