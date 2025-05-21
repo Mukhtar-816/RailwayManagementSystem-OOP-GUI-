@@ -1,0 +1,7 @@
+UserID: 3026
+TicketID: 8337
+Name: ui222
+TrainNo: 1005
+Seats: 7
+TotalCost: 700
+----------------------

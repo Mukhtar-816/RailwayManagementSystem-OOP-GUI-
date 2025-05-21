@@ -1,0 +1,7 @@
+UserID: 3816
+TicketID: 5865
+Name: Mukhtar Shaikh 12
+TrainNo: 1002
+Seats: 5
+TotalCost: 500
+----------------------
